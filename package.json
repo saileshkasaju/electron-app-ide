@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/saileshkasaju/electron-app-ide/issues"
   },
-  "homepage": "https://github.com/saileshkasaju/electron-app-ide#readme"
+  "homepage": "https://github.com/saileshkasaju/electron-app-ide#readme",
+  "dependencies": {
+    "monaco-loader": "0.8.2"
+  }
 }
