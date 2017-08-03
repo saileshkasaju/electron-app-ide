@@ -1,7 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 
 app.on('ready', () => {
-  let mainWindow = new BrowserWindow()
+  let mainWindow = new BrowserWindow({
+    titleBarStyle: 'hidden-inset'
+  })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.webContents.on('will-navigate', (e, url) => {
