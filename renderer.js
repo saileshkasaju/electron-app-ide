@@ -1,3 +1,4 @@
+const { ipcRenderer } = require('electron')
 const loader = require('monaco-loader')
 
 loader().then(monaco => {
@@ -6,5 +7,9 @@ loader().then(monaco => {
     language: 'javascript',
     theme: 'vs-dark',
     automaticLayout: true
+  })
+
+  ipcRenderer.on('open-file', (e, url) => {
+    console.log(url);
   })
 })
