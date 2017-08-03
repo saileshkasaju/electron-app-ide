@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron')
 const loader = require('monaco-loader')
+const fs = require('fs')
 
 loader().then(monaco => {
   let editor = monaco.editor.create(document.querySelector
@@ -10,6 +11,8 @@ loader().then(monaco => {
   })
 
   ipcRenderer.on('open-file', (e, url) => {
-    console.log(url);
+    fs.readFile(url.slice(7), 'utf-8', (err, data) => {
+      editor.setModel(monaco.editor.createModel(data, 'javascript'))
+    })
   })
 })
